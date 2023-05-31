@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-    node {
-        label 'spot-agent'
+    agent any
     }
 }
     parameters {
