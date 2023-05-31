@@ -1,10 +1,20 @@
 pipeline {
-    agent any
-    
+    agent {
+    node {
+        label 'spot-agent'
+    }
+}
+    parameters {
+        gitParameter branchFilter: '.*', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
+        booleanParam(name: "user_stat_generate", defaultValue: false)
+    }
     stages {
         stage('Print Message') {
             steps {
-                echo 'Hello vishwajit, Jenkins!'
+                echo 'Hello, Jenkins!'
+                if [[ "${user_stat_generate}" == "true" ]]; then
+                    echo 'Hello, Jenkins!'
+                fi
             }
         }
     }
