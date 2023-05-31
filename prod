@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Hello, Jenkins!'
                 if [[ "${user_stat_generate}" == "true" ]]; then
-                    echo 'Hello, Jenkins!'
+                    echo 'Hello, Jenkins vishwajit!'
                 fi
             }
         }
