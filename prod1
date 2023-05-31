@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+ 
+    parameters {
+        string(defaultValue: 'main', description: 'Branch Name', name: 'BRANCH')
+        booleanParam(name: "user_stat_generate", defaultValue: false)
+    }
+    stages {
+        stage('Print Message') {
+            steps {
+                echo 'Deploying....'
+                script {   
+                    sh '''
+                    echo 'Hello, Jenkins!'
+                    if [[ "${user_stat_generate}" == "true" ]]; then
+                       echo 'Hello, Jenkins vishwajit !'
+                    fi
+                    '''
+                    }
+                }
+            }
+        }
+    }
+}
