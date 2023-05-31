@@ -13,8 +13,8 @@ pipeline {
                 script {   
                     sh '''
                     echo 'Hello, Jenkins!'
-                    if [[ "$USER_STAT_GENERATE" == "true" ]]; then
-                       echo 'Hello, Jenkins vishwajit !'
+                    if [ "$USER_STAT_GENERATE" = "true" ]; then
+                       echo 'Hello, Jenkins vishwajit!'
                     fi
                     '''
                 }
