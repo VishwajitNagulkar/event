@@ -9,9 +9,11 @@ pipeline {
         stage('Print Message') {
             steps {
                 echo 'Hello, Jenkins!'
-                if [[ "${user_stat_generate}" == "true" ]]; then
-                    echo 'Hello, Jenkins vishwajit!'
-                fi
+                script {
+                    if (env.user_stat_generate == "true") {
+                        echo 'Hello, Jenkins vishwajit!'
+                    }
+                }
             }
         }
     }
