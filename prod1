@@ -4,6 +4,7 @@ pipeline {
     parameters {
         string(defaultValue: 'main', description: 'Branch Name', name: 'BRANCH')
         booleanParam(name: 'USER_STAT_GENERATE', defaultValue: false, description: 'User Stat Generation')
+        string(name: 'version_no', defaultValue: 'default value', description: 'Description of the string parameter')
     }
     
     stages {
@@ -14,7 +15,7 @@ pipeline {
                     sh '''
                     echo 'Hello, Jenkins!'
                     if [ "$USER_STAT_GENERATE" = "true" ]; then
-                       echo 'Hello, Jenkins vishwajit!'
+                       echo 'Hello, Jenkins ${params.version_no} !'
                     fi
                     echo 'Hello, Jenkins again!'
                     '''
