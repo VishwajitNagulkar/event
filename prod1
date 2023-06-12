@@ -12,13 +12,13 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 script {   
-                    sh '''
+                    sh """
                     echo 'Hello, Jenkins!'
-                    if [ "$USER_STAT_GENERATE" = "true" ]; then
+                    if [ "${params.USER_STAT_GENERATE}" = "true" ]; then
                        echo 'Hello, Jenkins ${params.version_no} !'
                     fi
                     echo 'Hello, Jenkins again!'
-                    '''
+                    """
                 }
             }
         }
